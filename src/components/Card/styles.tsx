@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components/native'
+import styled, { css } from 'styled-components/native';
+import { ICardStyledProps } from './interface';
 
 export const Container = styled.View`
   height: 72px;
@@ -8,19 +9,20 @@ export const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors["neutral-100"]};
+  background-color: ${({ theme }) => theme.colors['neutral-100']};
 `;
 
 const fontVariant = css`
   font-family: ${({ theme }) => theme.fonts.text};
   font-size: 24px;
-  color: ${({ theme }) => theme.colors['neutral-700']}
+  color: ${({ theme }) => theme.colors['neutral-700']};
 `;
 
 export const Label = styled.Text`
-  ${fontVariant}
+  ${fontVariant};
 `;
 
-export const Description = styled.Text`
-${fontVariant}
+export const Description = styled.Text<ICardStyledProps>`
+  ${fontVariant};
+  color: ${({ color, theme }) => theme.colors[color]};
 `;
